@@ -4,8 +4,8 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'DSL/GET/*.yml'
-      - 'DSL/POST/*.yml'
+      - 'DSL/GET/**/*.yml'
+      - 'DSL/POST/**/*.yml'
 
 jobs:
   kratest:
