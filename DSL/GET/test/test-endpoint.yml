@@ -1,2 +1,6 @@
-test: true
-# trigger
+first_step:
+  call: reflect.mock
+  args:
+    response:
+      value: ok
+  next: end
