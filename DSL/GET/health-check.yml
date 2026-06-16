@@ -1,0 +1,6 @@
+first_step:
+  call: reflect.mock
+  args:
+    response:
+      status: ok
+  next: end
