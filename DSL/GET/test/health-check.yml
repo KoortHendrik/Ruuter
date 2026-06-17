@@ -1,10 +1,9 @@
-first_step:
+step_1:
   call: reflect.mock
   args:
     response:
       status: ok
-  next: end
-# trigger
-# kratest test Tue Jun 16 16:34:56 EEST 2026
-# Tue Jun 16 16:36:36 EEST 2026
-# Wed Jun 17 15:00:40 EEST 2026
+  result: mock_response
+
+step_2:
+  return: ${mock_response}

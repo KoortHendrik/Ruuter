@@ -1,6 +1,9 @@
-first_step:
+step_1:
   call: reflect.mock
   args:
     response:
       value: ok
-  next: end
+  result: mock_response
+
+step_2:
+  return: ${mock_response}
