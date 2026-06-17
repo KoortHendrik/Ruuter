@@ -3,7 +3,7 @@ step_1:
   args:
     response:
       status: ok
-  result: mock_response
+  result: reflected_request
 
 step_2:
-  return: ${mock_response}
+  return: ${reflected_request.response}
