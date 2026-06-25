@@ -24,4 +24,11 @@ fourth_step:
   args:
     response:
       test: value
+  next: fifth_step
+
+  fifth_step:
+  call: reflect.mock
+  args:
+    response:
+      test: value
   next: end
