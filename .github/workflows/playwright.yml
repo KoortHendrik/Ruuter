@@ -1,0 +1,62 @@
+name: Playwright Smoke Tests — Ruuter
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      
+
+      
+
+      
+      - name: Start services
+        run: docker compose -f docker-compose.yml up -d
+
+      
+      - name: Wait for service
+        run: |
+          for i in $(seq 1 10); do
+            curl -sf http://localhost:8080/actuator/health && break
+            echo "Waiting... ($i/10)"
+            sleep 3
+          done
+      
+      
+
+      - name: Install Playwright
+        run: |
+          npm install dotenv
+          npm ci
+          npx playwright install --with-deps
+
+      - name: Run smoke tests
+        env:
+          BASE_URL: http://localhost:8080
+        run: npx playwright test
+
+      - name: Upload report
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
