@@ -1,0 +1,13 @@
+check_required:
+  switch:
+    - condition: ${incoming.body.name == null}
+      next: return_missing
+  next: return_ok
+
+return_missing:
+  status: 400
+  return: "Missing required field: name"
+
+return_ok:
+  status: 200
+  return: ${incoming.body}
