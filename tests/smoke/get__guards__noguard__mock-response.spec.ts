@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// GET without guard, ensures unguarded path works
+// simple GET endpoint
 // Source: GET /guards/noguard/mock-response
 
 

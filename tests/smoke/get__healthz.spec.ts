@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// primary health check endpoint
+// health check
 // Source: GET /healthz
 
 

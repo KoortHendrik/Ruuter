@@ -1,9 +1,7 @@
 import { test, expect } from '@playwright/test';
 
-// GET with guard true, verifies guarded endpoint handling
+// simple GET endpoint
 // Source: GET /guards/ok/mock-response
-
-// ⚠ This endpoint has a .guard file — authentication may be required.
 
 
 test.fixme('smoke: GET /guards/ok/mock-response', async ({ request }) => {

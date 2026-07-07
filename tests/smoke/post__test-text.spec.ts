@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// simple POST with one input, useful for text payload verification
+// simple POST endpoint
 // Source: POST /test-text
 
 
@@ -9,7 +9,7 @@ test.fixme('smoke: POST /test-text', async ({ request }) => {
   const response = await request.post(`${process.env.BASE_URL}/test-text`, {
     data: {
       
-      // TODO: fill required fields: body
+      // TODO: add request body
       
     }
   });

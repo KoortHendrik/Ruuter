@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-// simple GET with no inputs, good baseline
+// simple GET endpoint
 // Source: GET /common/skip
 
 
