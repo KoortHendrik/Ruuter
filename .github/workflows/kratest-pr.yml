@@ -12,8 +12,6 @@ jobs:
   kratest:
     name: Analyze PR coverage
     runs-on: ubuntu-latest
-    env:
-      KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-report
 
     steps:
       - name: Checkout test-intelligence monorepo
@@ -45,6 +43,7 @@ jobs:
 
       - name: Analyze pull request
         env:
+          KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-report
           KRATEST_TOKEN: ${{ secrets.KRATEST_TOKEN }}
         run: >-
           kratest-pr
@@ -56,6 +55,8 @@ jobs:
       - name: Add coverage report to job summary
         if: ${{ always() }}
         shell: bash
+        env:
+          KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-report
         run: |
           report="${KRATEST_OUTPUT_DIR}/kratest-coverage.md"
           if [[ -f "${report}" ]]; then
