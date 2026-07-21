@@ -1,0 +1,928 @@
+{
+  "schema_version": "1.0",
+  "repo": "/Users/hendrikk/Developer/ria/Ruuter",
+  "generated_from_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+  "generated_at": "2026-07-03T11:50:33.323482Z",
+  "stack": {
+    "language": "Java",
+    "framework": "Spring Boot",
+    "build_system": "Gradle",
+    "has_docker": true
+  },
+  "startup": {
+    "method": "docker-compose",
+    "compose_file": "docker-compose.yml",
+    "ports": [
+      8080
+    ],
+    "health_endpoint": "/actuator/health",
+    "assumptions": [
+      "docker and docker-compose must be available"
+    ]
+  },
+  "surface": [
+    {
+      "id": "dcfd64daa7b8cda04ee7f3d8cf727e33b00ab3419996a714bf7fa02c9d3dca57",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/common/skip",
+      "source_file": "DSL/GET/common/skip.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "082bff191d3589e4611346e4f257bee13e47f22044c2d349be7758653465a0eb",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/common/sleep",
+      "source_file": "DSL/GET/common/sleep.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "f953c40c9f87f18e60bc325f56260223ba8e16343320d158ba99bd7b8d48df0e",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/declare-test",
+      "source_file": "DSL/GET/declare-test.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [
+          "body",
+          "body.input"
+        ],
+        "upstream_services": [
+          "dashboard.elering.ee"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 5,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "5186359fa502068d8bd5d665357df87992dc1e32b45acd6adc0bf26ba07aad05",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/fail/fail_subfolder/mock-response",
+      "source_file": "DSL/GET/guards/fail/fail_subfolder/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "3caf55928360a75aa988126c351e8dd20b07e7b3c56039a4200d32b884cd7e52",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/fail/mock-response",
+      "source_file": "DSL/GET/guards/fail/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": true,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "e0fa15b641d787bad54919469ffef76cceca89a5f38c953056b449dde1d2c190",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/noguard/mock-response",
+      "source_file": "DSL/GET/guards/noguard/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "3a8054e897e9778e59cdc15dd8e75691add1f61393607057ce03ffe025aa9821",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/ok/mock-response",
+      "source_file": "DSL/GET/guards/ok/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": true,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "bb0467e32f645b94ccb07a73821d0387bbc132351f6cd5dbfcce3e52f613c8e2",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/ok/ok_subfolder/mock-response",
+      "source_file": "DSL/GET/guards/ok/ok_subfolder/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "a9ac04cdff37df26de130d2adb5de147e8ecde0623780df8f470a9f2e8810ad8",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/internal/mock-response",
+      "source_file": "DSL/GET/internal/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "04653cd55e7dc395298dfc3515f48b775023caa3a7941fa72148adbc69ae332e",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/end-execution",
+      "source_file": "DSL/GET/order/end-execution.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "ee373dd27490609ad8ff783a84bb0868d1011c68085882fee6aeb603ee0d15fb",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/jump-over-step",
+      "source_file": "DSL/GET/order/jump-over-step.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 4,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "03799fe409a0aa212cfd6ef57db9b8cc88f91dac76d79bcae466d374a1097dbf",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/jump-with-end",
+      "source_file": "DSL/GET/order/jump-with-end.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "18830b681fe593e66b1fdb308e401fad7d6fb2cdc0f5257c05fcce3e0f5ebe6d",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/steps",
+      "source_file": "DSL/GET/order/steps.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "aa9593557f10e6cda49daa60b49a9e8a3fa264c9dc65fea2517b25d761caccf1",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/computation",
+      "source_file": "DSL/GET/scripting/computation.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "8bd7b736407d604a4dfaf4591f3e30080aa05cccd28c3fed29250c93b9232936",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/concatenation-1",
+      "source_file": "DSL/GET/scripting/concatenation-1.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "afdc2c66c6682ac40f20e5061d19155b8cfbc6bfee98c387670f089e6bb6a51e",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/concatenation-2",
+      "source_file": "DSL/GET/scripting/concatenation-2.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "163a5aeffd9445698a50518b552fdf89427e2c64c0eed82c57d3a71d11e589e0",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/concatenation-3",
+      "source_file": "DSL/GET/scripting/concatenation-3.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "eef40f022f4e620526ed654df3f40903f9001ae4f947ee62189cd0404f13cbe7",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/conditional",
+      "source_file": "DSL/GET/scripting/conditional.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "6d9e79b9b4ea75e91c1ea9d17ff7452bd43345de040c43cf93f3c384032ceac0",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/passing-get-parameters",
+      "source_file": "DSL/GET/scripting/passing-get-parameters.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [
+          "params.queryVal",
+          "params.varFromDSL"
+        ],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "87f3b99c39bbbfcd126c8e90d361468c918f9a6a97f9097f560a1b5f93c0dec2",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/use-variable",
+      "source_file": "DSL/GET/scripting/use-variable.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "17620e2cced266da0b2d2a8d59d0e3dbd5470f8d2c47b4af83ecab3d54a347ae",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/assign/assign",
+      "source_file": "DSL/GET/steps/assign/assign.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 4,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "2f3c92876f704a2144273facd99c0276cd991136d6defd3809ed1d64380660e5",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-pass-param",
+      "source_file": "DSL/GET/steps/get/get-pass-param.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [
+          "localhost"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "c67820593e0e7b8836032fbf8ad5aec373562c6a355f72e39ec7aaa234db1750",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-header",
+      "source_file": "DSL/GET/steps/get/get-with-header.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "36304845b892209f80b4a906482a26c568a1bd8e4a7f3acf844f9463231a84bd",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-used-request",
+      "source_file": "DSL/GET/steps/get/get-with-used-request.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "48c2e558c41cc9cb6f8be044b9af23dc94213d00640385268e017b85416d839f",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-used-response",
+      "source_file": "DSL/GET/steps/get/get-with-used-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "4819291cb21eeb7aa6932455ae7b38a2d11cc9adf9086d33c1f90e58a261bd5f",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-variable",
+      "source_file": "DSL/GET/steps/get/get-with-variable.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "0488d014945b3a28715a2ea1d2cac0be2041db8673f74dc453aae2afd2ca862a",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get",
+      "source_file": "DSL/GET/steps/get/get.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "87a02ecb3502d84e804d3e914ad1652eb823374d0dd11a2142d896cf2a44c798",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-headers-with-script",
+      "source_file": "DSL/GET/steps/return/return-headers-with-script.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "c8694186a88953a3410a111898db4d6cb72ba38e78e240c17c70e066139e1c43",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-headers",
+      "source_file": "DSL/GET/steps/return/return-headers.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "78480338a4da11e380dea6d3c74ab5893b4ef508f1beae96602c78914eb55ef6",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-status",
+      "source_file": "DSL/GET/steps/return/return-status.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [
+          201
+        ],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "4ff8caa02f647320b79f99b54aff8533b8971e82a69a488c52bcb824ed5c088a",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-with-script",
+      "source_file": "DSL/GET/steps/return/return-with-script.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "6b78ad1f7eb588744330d390b4554ffc7ed803819f15e82daa531a7ce82009f4",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-without-wrapper",
+      "source_file": "DSL/GET/steps/return/return-without-wrapper.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "ebc34bd6c70d008a7462a2d1a167a05009bc4e9d0a54a98b3ddc0ace6f41ea7d",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return",
+      "source_file": "DSL/GET/steps/return/return.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "7a4d205903e50bc0109c6077db336dd44315090d75b1c5ab58e176f9410a3717",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/switch/conditional-jump",
+      "source_file": "DSL/GET/steps/switch/conditional-jump.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [
+          "us-central1-workflowsample.cloudfunctions.net"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 5,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "b9669e257f509a2a846b07e790d2dad37737c149556844fbd86a27a48c74d075",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/template/template-with-params",
+      "source_file": "DSL/GET/steps/template/template-with-params.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "67324cf83ac902e1af4ec5e050bd3cbee71f87324fadd50f0e80da8c70d8c4de",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/template/template",
+      "source_file": "DSL/GET/steps/template/template.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "a42dc664eeec3d38bd092b2e1ee3db32b4941282be13735979c46b9a10adfea5",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/template-test/call-template",
+      "source_file": "DSL/GET/template-test/call-template.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": true,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "1a8304c7d41d0880b27a7603dec9084ff1008485c081f9627c267de800aab941",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/dynamic-body",
+      "source_file": "DSL/POST/dynamic-body.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [
+          "body.input"
+        ],
+        "upstream_services": [
+          "host.docker.internal"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "ab305eaacc66de97fde29dc58c9eaaa36c7bb03ded985d587203a25cd77455cc",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/scripting/passing-post-parameters",
+      "source_file": "DSL/POST/scripting/passing-post-parameters.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [
+          "body.project",
+          "body.website"
+        ],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "d79b0f46b291566277a73caf775b2b9107cc7bcd5ccb853f4ae3c38450d7df9e",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/steps/post/post-with-plaintext-value",
+      "source_file": "DSL/POST/steps/post/post-with-plaintext-value.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "a7e8fcb49c1402b2eeb5bfecbb39f2b2d5a15f1bc2c01b410d777fdec0d10075",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/steps/post/post-with-used-response",
+      "source_file": "DSL/POST/steps/post/post-with-used-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "1fd2a4bf0be1946b840f99f98e4907ea6e09bbe244a9e369e20f2b153c3739cd",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/test-text",
+      "source_file": "DSL/POST/test-text.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": {
+        "request_inputs": [
+          "body"
+        ],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "f3671cb4f6c02b97c0efa081d965cb8961682b6699039c98acd1414ace5e8b1a",
+      "type": "http-route",
+      "method": "GET",
+      "path": "/api",
+      "source_file": "src/main/java/ee/buerokratt/ruuter/controller/APIController.java",
+      "discovered_by": "spring_rest",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": null,
+      "context_unavailable_reason": "no_context_analyzer"
+    },
+    {
+      "id": "dd9b14423a44aeb2d48bb9a7616436680fd20d4308c954a75ea18049f4edc083",
+      "type": "http-route",
+      "method": "POST",
+      "path": "/**/text/*",
+      "source_file": "src/main/java/ee/buerokratt/ruuter/controller/DslController.java",
+      "discovered_by": "spring_rest",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": null,
+      "context_unavailable_reason": "no_context_analyzer"
+    },
+    {
+      "id": "3047ebddbfc8cb0effa4d2f6eeb49d2e2fa16daef403a6d54af3bde4f2daf186",
+      "type": "http-route",
+      "method": "GET",
+      "path": "/healthz",
+      "source_file": "src/main/java/ee/buerokratt/ruuter/controller/HeartBeatController.java",
+      "discovered_by": "spring_rest",
+      "first_seen_sha": "f24d4c03ea02ca8106736f3b7abac9eb2d3ad79e",
+      "context": null,
+      "context_unavailable_reason": "no_context_analyzer"
+    }
+  ],
+  "smoke_candidates": [
+    {
+      "endpoint_id": "3047ebddbfc8cb0effa4d2f6eeb49d2e2fa16daef403a6d54af3bde4f2daf186",
+      "method": "GET",
+      "path": "/healthz",
+      "reason": "primary health check endpoint"
+    },
+    {
+      "endpoint_id": "dcfd64daa7b8cda04ee7f3d8cf727e33b00ab3419996a714bf7fa02c9d3dca57",
+      "method": "GET",
+      "path": "/common/skip",
+      "reason": "simple GET with no inputs, good baseline"
+    },
+    {
+      "endpoint_id": "082bff191d3589e4611346e4f257bee13e47f22044c2d349be7758653465a0eb",
+      "method": "GET",
+      "path": "/common/sleep",
+      "reason": "simple GET with no inputs, tests basic response timing"
+    },
+    {
+      "endpoint_id": "3a8054e897e9778e59cdc15dd8e75691add1f61393607057ce03ffe025aa9821",
+      "method": "GET",
+      "path": "/guards/ok/mock-response",
+      "reason": "GET with guard true, verifies guarded endpoint handling"
+    },
+    {
+      "endpoint_id": "e0fa15b641d787bad54919469ffef76cceca89a5f38c953056b449dde1d2c190",
+      "method": "GET",
+      "path": "/guards/noguard/mock-response",
+      "reason": "GET without guard, ensures unguarded path works"
+    },
+    {
+      "endpoint_id": "0488d014945b3a28715a2ea1d2cac0be2041db8673f74dc453aae2afd2ca862a",
+      "method": "GET",
+      "path": "/steps/get/get",
+      "reason": "basic GET step, no inputs, validates step execution"
+    },
+    {
+      "endpoint_id": "1a8304c7d41d0880b27a7603dec9084ff1008485c081f9627c267de800aab941",
+      "method": "POST",
+      "path": "/dynamic-body",
+      "reason": "simple POST with a single input, tests request body handling"
+    },
+    {
+      "endpoint_id": "1fd2a4bf0be1946b840f99f98e4907ea6e09bbe244a9e369e20f2b153c3739cd",
+      "method": "POST",
+      "path": "/test-text",
+      "reason": "simple POST with one input, useful for text payload verification"
+    },
+    {
+      "endpoint_id": "d79b0f46b291566277a73caf775b2b9107cc7bcd5ccb853f4ae3c38450d7df9e",
+      "method": "POST",
+      "path": "/steps/post/post-with-plaintext-value",
+      "reason": "POST step with no extra inputs, checks plain‑text response handling"
+    },
+    {
+      "endpoint_id": "a42dc664eeec3d38bd092b2e1ee3db32b4941282be13735979c46b9a10adfea5",
+      "method": "GET",
+      "path": "/template-test/call-template",
+      "reason": "guarded GET invoking a template, high‑value functional test"
+    }
+  ]
+}

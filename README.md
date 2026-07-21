@@ -23,6 +23,8 @@ To launch the application's tests, run:
 gradlew test
 ```
 
+Use the Gradle wrapper above so the test command runs with the repository's pinned version.
+
 
 ## Building for production
 
