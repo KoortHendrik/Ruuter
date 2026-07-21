@@ -1,5 +1,6 @@
 # Ruuter
 - Java 17, Gradle
+- This project uses YAML-based DSL files to define API behavior.
 
 ## Guide
 See guide [here](./samples/GUIDE.md)

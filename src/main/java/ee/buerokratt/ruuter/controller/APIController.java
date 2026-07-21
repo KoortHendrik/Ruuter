@@ -21,6 +21,7 @@ public class APIController {
 
     @GetMapping("/api")
     public ResponseEntity<Object> openApiSpec(){
+        log.debug("Generating OpenAPI spec response");
         return status(200).contentType(MediaType.APPLICATION_JSON).body(Json.pretty(dslService.getOpenAPISpec()));
     }
 }
