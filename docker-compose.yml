@@ -1,16 +1,13 @@
-version: '3.9'
 services:
   ruuter:
     container_name: ruuter
-    build:
-      context: .
+    image: ghcr.io/buerokratt/ruuter:PRE-ALPHA-3.3.3
     volumes:
       - ./DSL:/DSL
     ports:
       - 8080:8080
     networks:
       - ruuter
-
 networks:
   ruuter:
     driver: bridge
