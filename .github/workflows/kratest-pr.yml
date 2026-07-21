@@ -1,0 +1,75 @@
+name: Kratest PR coverage
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  kratest:
+    name: Analyze PR coverage
+    runs-on: ubuntu-latest
+    env:
+      KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-report
+
+    steps:
+      - name: Checkout test-intelligence monorepo
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ vars.KRATEST_REPO }}
+          ref: ${{ vars.KRATEST_REF }}
+          path: test-intelligence
+          token: ${{ secrets.KRATEST_TOKEN }}
+          persist-credentials: false
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Risttee and Kratest
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e test-intelligence/risttee -e test-intelligence/kratest
+
+      - name: Locate installed Risttee command
+        id: risttee
+        shell: bash
+        run: |
+          command_path="$(command -v risttee)"
+          test -n "${command_path}"
+          echo "path=${command_path}" >> "${GITHUB_OUTPUT}"
+
+      - name: Analyze pull request
+        env:
+          KRATEST_TOKEN: ${{ secrets.KRATEST_TOKEN }}
+        run: >-
+          kratest-pr
+          --repo "${{ github.repository }}"
+          --pr-number "${{ github.event.pull_request.number }}"
+          --output-dir "${KRATEST_OUTPUT_DIR}"
+          --risttee-command "${{ steps.risttee.outputs.path }}"
+
+      - name: Add coverage report to job summary
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          report="${KRATEST_OUTPUT_DIR}/kratest-coverage.md"
+          if [[ -f "${report}" ]]; then
+            cat "${report}" >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "Kratest did not produce a Markdown report." >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
+      - name: Upload Kratest coverage report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: kratest-coverage-pr-${{ github.event.pull_request.number }}
+          path: |
+            ${{ runner.temp }}/kratest-report/kratest-coverage.json
+            ${{ runner.temp }}/kratest-report/kratest-coverage.md
+          if-no-files-found: warn
