@@ -1,7 +1,7 @@
 positive_setups:
-  - source_file: DSL/POST/risttee-experiment/validate.yml
-    method: POST
-    path: /risttee-experiment/validate
-    body:
-      name:
-        value: Grounded name
+- source_file: DSL/POST/risttee-experiment/validate.yml
+  method: POST
+  path: /risttee-experiment/validate
+  body:
+  name:
+  value: Grounded name
