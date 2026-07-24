@@ -3,5 +3,5 @@ positive_setups:
   method: POST
   path: /risttee-experiment/validate
   body:
-  name:
-  value: Grounded name
+    name:
+      value: Grounded name
