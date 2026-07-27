@@ -6,4 +6,5 @@ return_value:
       Secure: false
       HttpOnly: true
     custom-header: "customValue"
+    x-analysis-path: "profile-delta"
   return: "result"

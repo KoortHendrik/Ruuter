@@ -1,0 +1,127 @@
+name: Kratest default-branch coverage scan
+
+on:
+  schedule:
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: kratest-scan-${{ github.repository }}-${{ vars.KRATEST_SCAN_REF || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  kratest-scan:
+    name: Scan repository coverage
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout test-intelligence monorepo
+        uses: actions/checkout@v6
+        with:
+          repository: ${{ vars.KRATEST_REPO }}
+          ref: ${{ vars.KRATEST_REF }}
+          path: test-intelligence
+          token: ${{ secrets.KRATEST_TOKEN }}
+          persist-credentials: false
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Install Risttee and Kratest
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e test-intelligence/risttee -e test-intelligence/kratest
+
+      - name: Locate installed Risttee command
+        id: risttee
+        shell: bash
+        run: |
+          command_path="$(command -v risttee)"
+          test -n "${command_path}"
+          echo "path=${command_path}" >> "${GITHUB_OUTPUT}"
+
+      - name: Scan repository
+        env:
+          KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-scan
+          KRATEST_REQUESTED_REF: ${{ vars.KRATEST_SCAN_REF || github.sha }}
+          KRATEST_TOKEN: ${{ secrets.KRATEST_TOKEN }}
+        run: >-
+          kratest-scan
+          --repo "${{ github.repository }}"
+          --ref "${KRATEST_REQUESTED_REF}"
+          --output-dir "${KRATEST_OUTPUT_DIR}"
+          --risttee-command "${{ steps.risttee.outputs.path }}"
+
+      - name: Add scan report to job summary
+        if: ${{ always() }}
+        shell: bash
+        env:
+          KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-scan
+        run: |
+          report="${KRATEST_OUTPUT_DIR}/kratest-scan.md"
+          if [[ -f "${report}" ]]; then
+            cat "${report}" >> "${GITHUB_STEP_SUMMARY}"
+          else
+            echo "Kratest did not produce a scan report." >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
+      - name: Add recommendation backlog counts to job summary
+        if: ${{ always() }}
+        shell: bash
+        env:
+          KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-scan
+          KRATEST_RECOMMENDATIONS_ARTIFACT: kratest-scan-recommendations-${{ github.run_id }}
+        run: |
+          recommendations="${KRATEST_OUTPUT_DIR}/kratest-scan-recommendations.json"
+          if [[ -f "${recommendations}" ]]; then
+            python - "${recommendations}" "${KRATEST_RECOMMENDATIONS_ARTIFACT}" >> "${GITHUB_STEP_SUMMARY}" <<'PY'
+          import json
+          import sys
+
+          tiers = (
+              "READY_TO_EDIT_EXISTING_TEST",
+              "REQUIRES_NEW_TEST",
+              "REQUIRES_INVESTIGATION",
+          )
+          path, artifact_name = sys.argv[1:]
+          with open(path, encoding="utf-8") as source:
+              payload = json.load(source)
+          counts = {
+              group["readiness_tier"]: len(group["recommendations"])
+              for group in payload["groups"]
+          }
+
+          print("## Kratest recommendation backlog")
+          print()
+          for tier in tiers:
+              print(f"- {tier}: {counts.get(tier, 0)}")
+          print(f"- Full details: `{artifact_name}` artifact")
+          print()
+          PY
+          fi
+
+      - name: Upload Kratest scan report
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: kratest-scan-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/kratest-scan/kratest-scan.json
+            ${{ runner.temp }}/kratest-scan/kratest-scan.md
+          if-no-files-found: warn
+
+      - name: Upload Kratest scan recommendations
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: kratest-scan-recommendations-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/kratest-scan/kratest-scan-recommendations.json
+            ${{ runner.temp }}/kratest-scan/kratest-scan-recommendations.md
+          # BLOCKED runs legitimately have no recommendation files; do not warn.
+          if-no-files-found: ignore
