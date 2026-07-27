@@ -11,6 +11,7 @@ permissions:
 jobs:
   kratest:
     name: Analyze PR coverage
+    if: ${{ !startsWith(github.head_ref, 'kratest/pr-') }}
     runs-on: ubuntu-latest
 
     steps:
@@ -53,6 +54,7 @@ jobs:
           KRATEST_OUTPUT_DIR: ${{ runner.temp }}/kratest-report
           KRATEST_POSITIVE_SETUP_PATH: ${{ vars.KRATEST_POSITIVE_SETUP_PATH }}
           KRATEST_TOKEN: ${{ secrets.KRATEST_TOKEN }}
+          KRATEST_WRITE_TOKEN: ${{ secrets.KRATEST_WRITE_TOKEN }}
         run: |
           args=(
             kratest-pr
@@ -152,4 +154,20 @@ jobs:
             ${{ runner.temp }}/kratest-report/kratest-recommendations.json
             ${{ runner.temp }}/kratest-report/kratest-recommendations.md
           # BLOCKED runs legitimately have no recommendation files; do not warn.
+          if-no-files-found: ignore
+
+      - name: Upload Kratest coverage-comment publication status
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: kratest-publication-pr-${{ github.event.pull_request.number }}
+          path: ${{ runner.temp }}/kratest-report/kratest-publication.json
+          if-no-files-found: ignore
+
+      - name: Upload Kratest generated-test PR publication status
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v7
+        with:
+          name: kratest-generated-test-pr-publication-pr-${{ github.event.pull_request.number }}
+          path: ${{ runner.temp }}/kratest-report/kratest-generated-test-pr-publication.json
           if-no-files-found: ignore
