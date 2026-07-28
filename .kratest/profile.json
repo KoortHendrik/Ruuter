@@ -1,0 +1,1205 @@
+{
+  "schema_version": "1.2",
+  "repo": "/Users/hendrikk/Developer/ria/Ruuter",
+  "generated_from_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+  "generated_at": "2026-07-23T07:09:15.853729Z",
+  "stack": {
+    "language": "Java",
+    "framework": "Spring Boot",
+    "build_system": "Gradle",
+    "has_docker": true
+  },
+  "startup": {
+    "method": "docker-compose",
+    "compose_file": "docker-compose.yml",
+    "ports": [
+      8080
+    ],
+    "health_endpoint": "/actuator/health",
+    "assumptions": [
+      "docker and docker-compose must be available"
+    ]
+  },
+  "surface": [
+    {
+      "id": "c0df07ab5cef3dd0bd6807235125ca9359510e816e2acdf3fe77cb713504e337",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/common/skip",
+      "source_file": "DSL/GET/common/skip.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "abdf7fcf5c3768b389429b7a7c37643873700e8eb0c4a9003b65b45759e940a0",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/common/sleep",
+      "source_file": "DSL/GET/common/sleep.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "648f38d3b72dab1ff7ae8188626895847c22e6cf2f4a2b28a7f9844c247e958b",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/declare-test",
+      "source_file": "DSL/GET/declare-test.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [
+          "body.input"
+        ],
+        "upstream_services": [
+          "dashboard.elering.ee"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 5,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": [
+          {
+            "ref": {
+              "location": "body",
+              "field": "input"
+            },
+            "type": "unknown",
+            "provenance": "unavailable",
+            "confidence": "unknown"
+          }
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "bcea4c02ad48b5d8948b4b4666483d692bc4b7a55b8c8f75e46af9cb3382b447",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/fail/fail_subfolder/mock-response",
+      "source_file": "DSL/GET/guards/fail/fail_subfolder/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "a48c98e80403e896e922eb2a2a19b453533069fbd37356a2f61f9d1b9d36b069",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/fail/mock-response",
+      "source_file": "DSL/GET/guards/fail/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": true,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "174dd6b3fd4419ebbbfbdee84db0723185cfb1fdf6e00197173e59e9ca1aa9bd",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/noguard/mock-response",
+      "source_file": "DSL/GET/guards/noguard/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "329841b15bf26a7812bfad144a35f380e8a7b4bf8cc1167f33e3d60aa3247ef8",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/ok/mock-response",
+      "source_file": "DSL/GET/guards/ok/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": true,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "364e62103a5324ea02b04cd188d5117d68deecd4f2a74f79305a3982f629ab4d",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/guards/ok/ok_subfolder/mock-response",
+      "source_file": "DSL/GET/guards/ok/ok_subfolder/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "80a59a41fd772778132c2f07bad31670ccc1f3956a2d16ce339035ff2c7c0473",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/internal/mock-response",
+      "source_file": "DSL/GET/internal/mock-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "cec567ba8a154dab0cce8668074285b7e29949ade06769fc5a6df3b5bce3992d",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/end-execution",
+      "source_file": "DSL/GET/order/end-execution.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "93748880957319aff4ddf48e77dc17413c0c8a6d3076b54bef54c1afacc5f282",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/jump-over-step",
+      "source_file": "DSL/GET/order/jump-over-step.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 4,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "fb0379d72b589cd2914bf5edcfce71f09e92caa2f88532b89d811cecd0f3159c",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/jump-with-end",
+      "source_file": "DSL/GET/order/jump-with-end.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "9fcd91e79fe390e4e6e6cb4ef816a908f1f6d24c9f87d15eda36bd873e81da4c",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/order/steps",
+      "source_file": "DSL/GET/order/steps.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 3,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "0da2e7ea930c88aa908453d52934acc20e168baade3a12bb240a7aaaf0c247a2",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/computation",
+      "source_file": "DSL/GET/scripting/computation.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "8f729fa9dd8a389e21488be7f6225ebe21842720b08152acba498cf036903575",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/concatenation-1",
+      "source_file": "DSL/GET/scripting/concatenation-1.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "402f4777af29869bedce21b46f0422d39758b0a9ec12389f93bca2fcebcfac99",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/concatenation-2",
+      "source_file": "DSL/GET/scripting/concatenation-2.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "8af582137e914c4c05611ed1d01163475b10f422687c95fcc5d8a5a4bc6c19a0",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/concatenation-3",
+      "source_file": "DSL/GET/scripting/concatenation-3.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "d41ca72def77d46469a282f490307f881aecb7a55542e8e52a3b99d2cb4aef35",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/conditional",
+      "source_file": "DSL/GET/scripting/conditional.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "49afac3f4ceb5690b9eedd9c55bb2c7c2746157647cd80994f133a87ee937353",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/passing-get-parameters",
+      "source_file": "DSL/GET/scripting/passing-get-parameters.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [
+          "params.queryVal",
+          "params.varFromDSL"
+        ],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": [
+          {
+            "ref": {
+              "location": "params",
+              "field": "queryVal"
+            },
+            "type": "unknown",
+            "provenance": "unavailable",
+            "confidence": "unknown"
+          },
+          {
+            "ref": {
+              "location": "params",
+              "field": "varFromDSL"
+            },
+            "type": "unknown",
+            "provenance": "unavailable",
+            "confidence": "unknown"
+          }
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "65f1b3b5f02820edf19e030c9f2ae6ead7906d85a70b522671861d0680ffa68a",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/scripting/use-variable",
+      "source_file": "DSL/GET/scripting/use-variable.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "d1ee997d70ededd6c6a2d0f6738346616a5e2b7e9ad308f9c61348b3f49ab6fe",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/assign/assign",
+      "source_file": "DSL/GET/steps/assign/assign.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 4,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "830d523bac3b296671e4139774eda11e985cae5cc42c43030c4e207645699066",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-pass-param",
+      "source_file": "DSL/GET/steps/get/get-pass-param.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [
+          "localhost"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "c15bb9a6070dec1bc31e1d362825263057a69cf4a4bd78d0f6fad90914fd2344",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-header",
+      "source_file": "DSL/GET/steps/get/get-with-header.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "6f770a8d1d0bb44a73143105b7e85d1f486f4db7b643fda386689ffa2e9c920e",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-used-request",
+      "source_file": "DSL/GET/steps/get/get-with-used-request.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "39d23c9c27d760a3f194f0f2828dbedf9bc97f8ce96584074a6f0cc67996665e",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-used-response",
+      "source_file": "DSL/GET/steps/get/get-with-used-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "6f03987a0ef09b409b5d08a24f365506bc6911d725e67788a00d615910322536",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get-with-variable",
+      "source_file": "DSL/GET/steps/get/get-with-variable.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "836e48cb2c44f6d226d708495e2087144870e90b73b190793be713caba6aa62a",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/get/get",
+      "source_file": "DSL/GET/steps/get/get.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "1334508bfcc6144b59ffa1caf7e6557f5971e750d748754dcbde136e2240e12d",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-headers-with-script",
+      "source_file": "DSL/GET/steps/return/return-headers-with-script.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "0a61a70217694683243fba1a3cd58837c329e3634a2fd690fb09d90b8766b6be",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-headers",
+      "source_file": "DSL/GET/steps/return/return-headers.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [
+          "DOMAIN_URL"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "432d4ea331ed052aa2dd3fdd137fe79b590117a873b0289b3d9397471db98936",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-status",
+      "source_file": "DSL/GET/steps/return/return-status.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [
+          201
+        ],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "3ed84d8583dff3a52b463945699f230a572a52bab75124c5289d9b5c6d063413",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-with-script",
+      "source_file": "DSL/GET/steps/return/return-with-script.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "4907c7b2987cfabb05248783ce67ed8e86c6df9454c1a7492b6b2d1ca74ca398",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return-without-wrapper",
+      "source_file": "DSL/GET/steps/return/return-without-wrapper.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "2f31c838c4cf458f64f32cde84b8c8a4f1530bfa0c4363f69f3080b39b1019c1",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/return/return",
+      "source_file": "DSL/GET/steps/return/return.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "1a9793cc4b1bcc69da8916fb0295c68f90e5a27a1a11bd82d3fcdb6ede65cf29",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/switch/conditional-jump",
+      "source_file": "DSL/GET/steps/switch/conditional-jump.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [
+          "us-central1-workflowsample.cloudfunctions.net"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 5,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "1375db4862f42b4d7071f558408b4284faf5a9753e48f0e0cd0391e44fb5f923",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/template/template-with-params",
+      "source_file": "DSL/GET/steps/template/template-with-params.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "6abb46cfb42ef9d02e1612d523dd78fe98302907ff5b565e9eb9393ad288e1a1",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/steps/template/template",
+      "source_file": "DSL/GET/steps/template/template.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "dc9f94cbecc36bb22a6589a28ea7d8c330543b644939635ffea9482dfef9ea13",
+      "type": "dsl-flow",
+      "method": "GET",
+      "path": "/template-test/call-template",
+      "source_file": "DSL/GET/template-test/call-template.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": true,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "6ac7f266dcfcf9da5378886189ce92f9a6b1fb4910062bce7aa270a578f4b223",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/dynamic-body",
+      "source_file": "DSL/POST/dynamic-body.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [
+          "body.input"
+        ],
+        "upstream_services": [
+          "host.docker.internal"
+        ],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": [
+          {
+            "ref": {
+              "location": "body",
+              "field": "input"
+            },
+            "type": "unknown",
+            "provenance": "unavailable",
+            "confidence": "unknown"
+          }
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "e3fe5a7fd1dbe6dff8c527bd67be64973ac8488af208795705381566082bb46f",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/risttee-experiment/validate",
+      "source_file": "DSL/POST/risttee-experiment/validate.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [
+          "body.name"
+        ],
+        "upstream_services": [],
+        "return_statuses": [
+          200,
+          400
+        ],
+        "has_guard": false,
+        "step_count": 4,
+        "env_placeholders": [],
+        "missing_field_branches": [
+          {
+            "fields": [
+              {
+                "location": "body",
+                "field": "name"
+              }
+            ],
+            "status": 400,
+            "operator": "OR",
+            "condition_expr": "${incoming.body.name == null}",
+            "terminal_response": "Missing required field: name",
+            "terminal_response_unavailable_reason": null,
+            "outcome_completeness": "FULL",
+            "outcome_unavailable_reason": null
+          }
+        ],
+        "conditional_branches": [],
+        "allowlist_fields": [
+          {
+            "ref": {
+              "location": "body",
+              "field": "name"
+            },
+            "type": "unknown",
+            "provenance": "unavailable",
+            "confidence": "unknown"
+          }
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "3a6abfb2ec4b653ee10453f6e817a5949f6c04afb1fab9f7196aace48bb185e8",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/scripting/passing-post-parameters",
+      "source_file": "DSL/POST/scripting/passing-post-parameters.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [
+          "body.project",
+          "body.website"
+        ],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 1,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": [
+          {
+            "ref": {
+              "location": "body",
+              "field": "project"
+            },
+            "type": "unknown",
+            "provenance": "unavailable",
+            "confidence": "unknown"
+          },
+          {
+            "ref": {
+              "location": "body",
+              "field": "website"
+            },
+            "type": "unknown",
+            "provenance": "unavailable",
+            "confidence": "unknown"
+          }
+        ]
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "d668705f5902353b9697b9f13daf999e4f1607194c20eb9ba7dccbd365709ebe",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/steps/post/post-with-plaintext-value",
+      "source_file": "DSL/POST/steps/post/post-with-plaintext-value.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "8939f70eaffd5ef3aea000c9a42000927cd4ac01103c3688840adedb163b9be5",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/steps/post/post-with-used-response",
+      "source_file": "DSL/POST/steps/post/post-with-used-response.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [
+          "DOMAIN_URL",
+          "PORT"
+        ],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "c127b5d5aaeb500a36249ea82afe441eb40763bd533c52bc14ea4d6e4032df27",
+      "type": "dsl-flow",
+      "method": "POST",
+      "path": "/test-text",
+      "source_file": "DSL/POST/test-text.yml",
+      "discovered_by": "buerokratt_dsl",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": {
+        "request_inputs": [],
+        "upstream_services": [],
+        "return_statuses": [],
+        "has_guard": false,
+        "step_count": 2,
+        "env_placeholders": [],
+        "missing_field_branches": [],
+        "conditional_branches": [],
+        "allowlist_fields": []
+      },
+      "context_unavailable_reason": null
+    },
+    {
+      "id": "ba088782d61f0b6ae030964acbb05e075efb828919b58458f85c9923744a7b3b",
+      "type": "http-route",
+      "method": "GET",
+      "path": "/api",
+      "source_file": "src/main/java/ee/buerokratt/ruuter/controller/APIController.java",
+      "discovered_by": "spring_rest",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": null,
+      "context_unavailable_reason": "no_context_analyzer"
+    },
+    {
+      "id": "ff1960bbb2f89c1fbc2ce8498a6bbee54958709814569446ab7e876b38e3ec52",
+      "type": "http-route",
+      "method": "POST",
+      "path": "/**/text/*",
+      "source_file": "src/main/java/ee/buerokratt/ruuter/controller/DslController.java",
+      "discovered_by": "spring_rest",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": null,
+      "context_unavailable_reason": "no_context_analyzer"
+    },
+    {
+      "id": "945d6fb34049947c78f5dc2cba40a03fed858ea355657ee88f57c2b4f799aed5",
+      "type": "http-route",
+      "method": "GET",
+      "path": "/healthz",
+      "source_file": "src/main/java/ee/buerokratt/ruuter/controller/HeartBeatController.java",
+      "discovered_by": "spring_rest",
+      "first_seen_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+      "context": null,
+      "context_unavailable_reason": "no_context_analyzer"
+    }
+  ],
+  "smoke_candidates": [
+    {
+      "endpoint_id": "945d6fb34049947c78f5dc2cba40a03fed858ea355657ee88f57c2b4f799aed5",
+      "method": "GET",
+      "path": "/healthz",
+      "reason": "primary health check"
+    },
+    {
+      "endpoint_id": "c0df07ab5cef3dd0bd6807235125ca9359510e816e2acdf3fe77cb713504e337",
+      "method": "GET",
+      "path": "/common/skip",
+      "reason": "simple GET with no inputs"
+    },
+    {
+      "endpoint_id": "abdf7fcf5c3768b389429b7a7c37643873700e8eb0c4a9003b65b45759e940a0",
+      "method": "GET",
+      "path": "/common/sleep",
+      "reason": "simple GET with no inputs"
+    },
+    {
+      "endpoint_id": "836e48cb2c44f6d226d708495e2087144870e90b73b190793be713caba6aa62a",
+      "method": "GET",
+      "path": "/steps/get/get",
+      "reason": "basic GET endpoint"
+    },
+    {
+      "endpoint_id": "c127b5d5aaeb500a36249ea82afe441eb40763bd533c52bc14ea4d6e4032df27",
+      "method": "POST",
+      "path": "/test-text",
+      "reason": "simplest POST without inputs"
+    },
+    {
+      "endpoint_id": "6ac7f266dcfcf9da5378886189ce92f9a6b1fb4910062bce7aa270a578f4b223",
+      "method": "POST",
+      "path": "/dynamic-body",
+      "reason": "POST with single input, low complexity"
+    },
+    {
+      "endpoint_id": "ba088782d61f0b6ae030964acbb05e075efb828919b58458f85c9923744a7b3b",
+      "method": "GET",
+      "path": "/api",
+      "reason": "generic GET endpoint, useful for basic availability"
+    },
+    {
+      "endpoint_id": "ff1960bbb2f89c1fbc2ce8498a6bbee54958709814569446ab7e876b38e3ec52",
+      "method": "POST",
+      "path": "/**/text/*",
+      "reason": "wildcard POST, tests routing and request handling"
+    },
+    {
+      "endpoint_id": "d1ee997d70ededd6c6a2d0f6738346616a5e2b7e9ad308f9c61348b3f49ab6fe",
+      "method": "GET",
+      "path": "/steps/assign/assign",
+      "reason": "simple GET that exercises step assignment logic"
+    }
+  ],
+  "source_sha": "1a1b9be346723b1553c5bb9759dacb50d59ca823",
+  "source_files": {
+    "DSL/GET/common/skip.yml": "b7d85d61d8e198d7579a67bc5f839cb66ea5208596e5aec834404322a1f05b3f",
+    "DSL/GET/common/sleep.yml": "e361b6447403311cf5abb77425ee712a112c90372b39a662c2277eb834b76904",
+    "DSL/GET/declare-test.yml": "bf853a9be834031a80fd88d8af340e44b772e0354da279bd363d8fd65ce52427",
+    "DSL/GET/guards/fail/fail_subfolder/mock-response.yml": "2faff43b3a00c8962b7e60b973892692bf74f35283b3fb2ce54081b024cf21d5",
+    "DSL/GET/guards/fail/mock-response.yml": "2faff43b3a00c8962b7e60b973892692bf74f35283b3fb2ce54081b024cf21d5",
+    "DSL/GET/guards/noguard/mock-response.yml": "f155c930da9341b25a75586995e7c72229279333905541c8c9b7025cfe585ef3",
+    "DSL/GET/guards/ok/mock-response.yml": "f155c930da9341b25a75586995e7c72229279333905541c8c9b7025cfe585ef3",
+    "DSL/GET/guards/ok/ok_subfolder/mock-response.yml": "2faff43b3a00c8962b7e60b973892692bf74f35283b3fb2ce54081b024cf21d5",
+    "DSL/GET/internal/mock-response.yml": "2faff43b3a00c8962b7e60b973892692bf74f35283b3fb2ce54081b024cf21d5",
+    "DSL/GET/order/end-execution.yml": "66b3183f2cbff52e1b96eed1e5b8d070cb82b9b832d84f9e203014ebabfe3664",
+    "DSL/GET/order/jump-over-step.yml": "e72a7d750431765b1f05c55954a4bf9c90c3a101583dab2585f45aadb61e2d5c",
+    "DSL/GET/order/jump-with-end.yml": "c6a57a3ad2c60756a33bb9d60212fca49febbc0f47921faf7c38c97b12bb74fe",
+    "DSL/GET/order/steps.yml": "8d86c96a224da44b00ce5d4936b3cd7c8fe04eece4657714dbefdcf39564a6cb",
+    "DSL/GET/scripting/computation.yml": "d6d0904484ed4d58038420a21a9e1ac444117d23c16f51b06b63d99399e7dc00",
+    "DSL/GET/scripting/concatenation-1.yml": "3107d3533fe355ed3bac0d233c352a93d017faf2addf6c65db0caa3e4c5cca8b",
+    "DSL/GET/scripting/concatenation-2.yml": "6d242cda2b97e26548081c4faf6fe117434826e037e0fb536db8c24d4ea7be3a",
+    "DSL/GET/scripting/concatenation-3.yml": "60e5b459a394c9fd34028ecbe9fb2338ea6619d83fc4428f2ade289d93ddf5c7",
+    "DSL/GET/scripting/conditional.yml": "8b503425a975cd2c7345377a0eaa96c7c703e65f899ce739832d5e846f8f2971",
+    "DSL/GET/scripting/passing-get-parameters.yml": "acf08c8ebd5f79c39de4fd4b6140d0055b29bd35df6d123bcbe3b7d33dbc4e9d",
+    "DSL/GET/scripting/use-variable.yml": "ba4fdb1fb4203aa4b5d72a123c28026bc61cd3aec8929007b34665f321feb8d8",
+    "DSL/GET/steps/assign/assign.yml": "c9759cc4b4ae8d7a5ee0e5f0dee3c83316d5c404497236417067fdef8dfb71e7",
+    "DSL/GET/steps/get/get-pass-param.yml": "50f1199fa14593c15c419298bc610aaa9f538089f4abdf76c7c35ff2aa5df897",
+    "DSL/GET/steps/get/get-with-header.yml": "d263fa10df04d62cfd53e20e4dda981b48a788a276911f46656110b5a9bbe50a",
+    "DSL/GET/steps/get/get-with-used-request.yml": "10b2a9b0b22be4ca6df5f3807dbc704b1da49d8c61f935c2d27d60f64085f68d",
+    "DSL/GET/steps/get/get-with-used-response.yml": "2743d0fb04ae28fb15a8a2033eeb9ac9664f0c7e5a44989d1beac4700992c4a4",
+    "DSL/GET/steps/get/get-with-variable.yml": "1b4164585ed2fa42e4200d245c0917b1bc1cf77021fe6c3657dcedc0ce82063b",
+    "DSL/GET/steps/get/get.yml": "253239361c908a96969cf352e46f3f93ecfbc714cf2fcd5a52f498557837ed90",
+    "DSL/GET/steps/return/return-headers-with-script.yml": "7d7f5d5e0e4b64814ed643f818d426869652f1c7f17046f7389ddca887859b24",
+    "DSL/GET/steps/return/return-headers.yml": "d3d79cc06e2a44859c61938e84ff9a2b6306c1fb4e83f5cf533b3331202f3a24",
+    "DSL/GET/steps/return/return-status.yml": "b207de926aa64ba713ff529d93855c1381397ce9fa848f97e20ae85cd3f594eb",
+    "DSL/GET/steps/return/return-with-script.yml": "d0245005ac1caf8b572e18a27983d609b6a9f3c740e362465de6782ff0e18723",
+    "DSL/GET/steps/return/return-without-wrapper.yml": "de3550a6abaa479b2ea10cdff9ec5018bc24e61f8c352541e4b173fb2a9f34cc",
+    "DSL/GET/steps/return/return.yml": "709c873fdf9c4a6123274721f9ca3e774f862595ac9faad10a8622bacb71e5bb",
+    "DSL/GET/steps/switch/conditional-jump.yml": "ce67180975cc46ca654702488fce9a7cbffd56480651c55594301fead23816e0",
+    "DSL/GET/steps/template/template-with-params.yml": "f3802dd3e237bd69d1a241acefef1626ea28fd96bb4faa04851949009767d766",
+    "DSL/GET/steps/template/template.yml": "fbf084eb896b056ce0aa801c1269eba01c9c171e9bef36de1bb297f63b4e593f",
+    "DSL/GET/template-test/call-template.yml": "1e36b9987b51ae83010e6a9d2a25650fb8abe6b83f77f90f0b336c194b687ff2",
+    "DSL/POST/dynamic-body.yml": "21457b042454175ed393519910c648236d62b42f44f2c208c5c3ff7d1b11e6e9",
+    "DSL/POST/risttee-experiment/validate.yml": "1968023a8a499e996704a69ed7d25f54a1ba5a98641bd00572a3c799cc2ff9b4",
+    "DSL/POST/scripting/passing-post-parameters.yml": "7dc61a5c6ae0ed553b32bb629c2d6e73433af97082574675de50f668d5404861",
+    "DSL/POST/steps/post/post-with-plaintext-value.yml": "a710ca4bcc6a3208260b337da6ceb68f9a46454a3d840b1cb35ae8168332726d",
+    "DSL/POST/steps/post/post-with-used-response.yml": "b8f28f4514138ef392360389854e7a966eb0b20a693b399e645afa230e17980d",
+    "DSL/POST/test-text.yml": "2b8b695a98022fdf1ed5b75db7078d1c0f0f923757664099908ae2c7cf29602d",
+    "docker-compose.yml": "127be6055c9cdec28bef638c8676dbf132445afee4a8a4e83ae4e5bfe11d967b",
+    "src/main/java/ee/buerokratt/ruuter/controller/APIController.java": "e15454eae798ca594c81ceb3784f82f0759c564bc5bd6eab00377f1ddf909d5d",
+    "src/main/java/ee/buerokratt/ruuter/controller/DslController.java": "ce6e533ef1a03505ceacad7f2a4a8447a6e314732423436a76cbda1c549f7db0",
+    "src/main/java/ee/buerokratt/ruuter/controller/HeartBeatController.java": "29a0ad8985eacbea942f754c071da4a4d80dba1f476023856bf502f1e529453c"
+  }
+}

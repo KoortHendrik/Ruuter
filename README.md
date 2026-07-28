@@ -17,6 +17,8 @@ docker-compose up -d
 
 ## Testing
 
+The repository includes smoke-test examples for representative HTTP and DSL endpoints.
+
 To launch the application's tests, run:
 
 ```

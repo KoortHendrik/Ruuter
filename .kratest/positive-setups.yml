@@ -1,0 +1,9 @@
+positive_setups:
+  - source_file: DSL/POST/risttee-experiment/validate.yml
+    method: POST
+    path: /risttee-experiment/validate
+    body:
+      name:
+        value: Grounded name
+    expected_response:
+      status: 200
